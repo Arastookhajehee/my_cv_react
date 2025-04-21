@@ -108,13 +108,14 @@ const cvData = [
   },
   {
     category: "Honors, Awards, and Grants",
-    year: 2022,
+    year: 2021,
     month: "October",
     title: "Excellent Graduate Student Project Presentation Award",
     // author: "Arastoo Khajehee",
     description:
       "",
     location: "Architectural Informatics Society Student Review 2021, Japan",
+    link: "https://ais-j.org/202203/1164/"
   },
   {
     category: "Honors, Awards, and Grants",
