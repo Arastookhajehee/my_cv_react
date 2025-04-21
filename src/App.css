@@ -6,8 +6,8 @@
 }
 
 .profile-img {
-  width: 80%;
-  margin-left: 10%;
+  width: 70%;
+  margin-left: 15%;
   height: auto;
   border-radius: 50%;
   border: solid 2px #306392;
@@ -37,26 +37,58 @@
 .w-50 {
   width: 50%;
 }
-
+.color-text{
+  color: #306392 !important;
+}
 h2{
-  color: #306392;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: #306392 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
 }
 h1 {
-  font-size: x-large;
+  font-size: x-large !important;
 }
 h2 {
-  font-size: 1.25rem;
+  font-size: 1.25rem !important;
 }
 h3 {
-  font-size: medium;
+  font-size: medium !important;
 }
 h4 {
-  font-size: small;
+  font-size: small !important;
 }
 h5 {
-  font-size: x-small;
+  font-size: x-small !important;
 }
 h6 {
-  font-size: xx-small;
+  font-size: xx-small !important;
+}
+
+footer {
+  font-size: small !important;
+}
+/* .fade-in {
+  opacity: 0 !important;
+  transform: translateY(10px) !important;
+  animation: fadeIn 0.5s ease forwards !important;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+} */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
