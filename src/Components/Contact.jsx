@@ -3,11 +3,13 @@ import profile_pic from "../assets/arastoo_khajehee.jpg";
 export default function Contact() {
   return (
     <div className="contact-info border border-1 border-secondary rounded-4 p-3 mb-3">
-      <img className="profile-img" src={profile_pic} alt="Arastoo Khajehee" />
+      <img className="profile-img mt-3" src={profile_pic} alt="Arastoo Khajehee" />
       <h1 className="my-3 text-uppercase text-center fw-bold">
         Arastoo Khajehee
       </h1>
+      <div className="px-3 py-1">
 
+      
       <h2 className="mt-3">Affilation</h2>
       <ul className="">
         <li>
@@ -67,6 +69,7 @@ export default function Contact() {
         <li>English: Fluent (iBT 109)</li>
         <li>Japanese: Business-Level</li>
       </ul>
+    </div>
     </div>
   );
 }

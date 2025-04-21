@@ -37,10 +37,10 @@ const CVSection = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light">
-        <div className="container-fluid justify-content-center">
+        <div className="container-fluid mt-1 ms-0 ps-0">
           {/* Toggler for mobile */}
           <button
-            className="navbar-toggler"
+            className="navbar-toggler rounded-4"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
@@ -48,7 +48,7 @@ const CVSection = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <h2 className="m-0 p-0 font-bold text-center">Curriculum Vitae</h2>
+            <h3 className="m-0 p-0 font-bold text-center">☰ CV Categories</h3>
           </button>
 
           <div className="collapse navbar-collapse my-3 my-lg-0" id="navbarNav">
@@ -60,7 +60,7 @@ const CVSection = () => {
                       }`}
                     onClick={() => handleCategoryClick(cat)}
                   >
-                    <h4>{cat}</h4>
+                    <h3>{cat}</h3>
                   </button>
                 </li>
               ))}

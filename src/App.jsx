@@ -24,6 +24,10 @@ function App() {
           </div>
         </div>
       </div>
+
+      <footer className="text-center py-2 mt-4 border-top">
+      curriculum vitae (cv) website written in React by Arastoo Khajehee &copy; {new Date().getFullYear()} 
+      </footer>
     </>
   )
 }
