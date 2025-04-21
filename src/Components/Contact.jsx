@@ -2,7 +2,7 @@ import profile_pic from "../assets/arastoo_khajehee.jpg";
 
 export default function Contact() {
   return (
-    <div className="contact-info border border-1 border-secondary rounded-4 p-3 mb-5">
+    <div className="contact-info border border-1 border-secondary rounded-4 p-3 mb-3">
       <img className="profile-img" src={profile_pic} alt="Arastoo Khajehee" />
       <h1 className="my-3 text-uppercase text-center fw-bold">
         Arastoo Khajehee
@@ -15,14 +15,14 @@ export default function Contact() {
         </li>
         <li>
           <h3 className="my-1 text-justify">
-            Project Academic Specialist at The University of Tokyo<br/>(Part-time)
+            Project Academic Specialist at The University of Tokyo<br />(Part-time)
           </h3>
         </li>
       </ul>
 
       <h2 className="mt-3">Website and SNS:</h2>
       <ul className="">
-      <li>
+        <li>
           <a
             href="https://www.remosharp.com/"
             target="_blank"
