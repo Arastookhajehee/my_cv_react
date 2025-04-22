@@ -580,6 +580,16 @@ const cvData = [
     link: "https://aiac-edu.com/en-us/aiacs-2/",
     location: "The University of Tokyo, Japan",
   },
+  {
+    category: "Publications",
+    year: 2024,
+    month: "March",
+    title: "Open-Source Development Practices and Architectural Thinking",
+    author: "A. Khajehee",
+    description: `建築情報学会白書 2023-2024 第三部 2024年8月9日発行 (White Paper on Architectural Informatics Society) Vol. 3 August 9th, 2024`,
+    link: "https://ais-j.org/en/publications/whitepaper_2023-2024/",
+    // location: "The University of Tokyo, Japan",
+  },
 ];
 
 export default cvData;
