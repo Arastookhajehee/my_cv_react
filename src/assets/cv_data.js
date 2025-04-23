@@ -590,6 +590,26 @@ const cvData = [
     link: "https://ais-j.org/en/publications/whitepaper_2023-2024/",
     // location: "The University of Tokyo, Japan",
   },
+  {
+    category: "Publications",
+    year: 2024,
+    month: "July",
+    title: "非BIMソフトのBIM的利用 (建材生産マネジメントシステムの開発報告) (その1)開発の概要",
+    author: "T. Ishihara, A. Khajehee, K. Watanabe",
+    description: `日本建築学会大会学術講演梗概集 2024-07 p.1113-1114 (Architectural Institute of Japan Annual Conference) Vol. 3 July 2024 p.1113-1114`,
+    link: "https://www.aij.or.jp/paper/detail.html?productId=696286",
+    // location: "The University of Tokyo, Japan",
+  },
+  {
+    category: "Publications",
+    year: 2024,
+    month: "July",
+    title: "非BIMソフトのBIM的利用 (建材生産マネジメントシステムの開発報告) (その2)技術的構成と運用",
+    author: "A. Khajehee, T. Ishihara, K. Watanabe",
+    description: `日本建築学会大会学術講演梗概集 2024-07 p.1113-1114 (Architectural Institute of Japan Annual Conference) Vol. 3 July 2024 p.1115-1116`,
+    link: "https://www.aij.or.jp/paper/detail.html?productId=696287",
+    // location: "The University of Tokyo, Japan",
+  },
 ];
 
 export default cvData;
