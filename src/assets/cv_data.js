@@ -108,13 +108,14 @@ const cvData = [
   },
   {
     category: "Honors, Awards, and Grants",
-    year: 2022,
+    year: 2021,
     month: "October",
     title: "Excellent Graduate Student Project Presentation Award",
     // author: "Arastoo Khajehee",
     description:
       "",
     location: "Architectural Informatics Society Student Review 2021, Japan",
+    link: "https://ais-j.org/202203/1164/"
   },
   {
     category: "Honors, Awards, and Grants",
@@ -578,6 +579,36 @@ const cvData = [
     description: `Tutoring Master's Degree Level Design Studio by Ikeda-lab: International Architectural Design Studio Competition held in Mézos, France`,
     link: "https://aiac-edu.com/en-us/aiacs-2/",
     location: "The University of Tokyo, Japan",
+  },
+  {
+    category: "Publications",
+    year: 2024,
+    month: "March",
+    title: "Open-Source Development Practices and Architectural Thinking",
+    author: "A. Khajehee",
+    description: `建築情報学会白書 2023-2024 第三部 2024年8月9日発行 (White Paper on Architectural Informatics Society) Vol. 3 August 9th, 2024`,
+    link: "https://ais-j.org/en/publications/whitepaper_2023-2024/",
+    // location: "The University of Tokyo, Japan",
+  },
+  {
+    category: "Publications",
+    year: 2024,
+    month: "July",
+    title: "非BIMソフトのBIM的利用 (建材生産マネジメントシステムの開発報告) (その1)開発の概要",
+    author: "T. Ishihara, A. Khajehee, K. Watanabe",
+    description: `日本建築学会大会学術講演梗概集 2024-07 p.1113-1114 (Architectural Institute of Japan Annual Conference) Vol. 3 July 2024 p.1113-1114`,
+    link: "https://www.aij.or.jp/paper/detail.html?productId=696286",
+    // location: "The University of Tokyo, Japan",
+  },
+  {
+    category: "Publications",
+    year: 2024,
+    month: "July",
+    title: "非BIMソフトのBIM的利用 (建材生産マネジメントシステムの開発報告) (その2)技術的構成と運用",
+    author: "A. Khajehee, T. Ishihara, K. Watanabe",
+    description: `日本建築学会大会学術講演梗概集 2024-07 p.1113-1114 (Architectural Institute of Japan Annual Conference) Vol. 3 July 2024 p.1115-1116`,
+    link: "https://www.aij.or.jp/paper/detail.html?productId=696287",
+    // location: "The University of Tokyo, Japan",
   },
 ];
 
