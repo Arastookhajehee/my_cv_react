@@ -1,4 +1,4 @@
-import profile_pic from "../assets/arastoo_khajehee.jpg";
+import profile_pic from "../assets/Profile_centered.jpg";
 
 export default function Contact() {
   return (
