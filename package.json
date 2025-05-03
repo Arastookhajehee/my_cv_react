@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.5",
+    "bootstrap-icons": "^1.11.3",
     "my_cv_react": "file:",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -28,6 +29,6 @@
     "globals": "^15.14.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.4",
-    "vite": "^6.1.0"
+    "vite": "^6.3.4"
   }
 }

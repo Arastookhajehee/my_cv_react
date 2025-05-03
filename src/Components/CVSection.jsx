@@ -1,6 +1,8 @@
 import cvData from "../assets/cv_data.js";
+import cvDataJP from "../assets/cv_data_jp.js";
+import categories from "../assets/categories_jp_en.js";
 import CVEntry from "./CVEntry.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProgrammingExperience from "./ProgramingExperience.jsx";
 
 const groupByCategory = (data) => {
@@ -16,10 +18,32 @@ const groupByCategory = (data) => {
   }, {});
 };
 
-const CVSection = () => {
-  const grouped = groupByCategory(cvData);
-  const [selectedCategory, setCategory] = useState("Professional Experience");
+const CVSection = ({language}) => {
+  const grouped = groupByCategory(language === "english" ? cvData : cvDataJP);
+  const [selectedCategory, setCategory] = useState(language === "english" ? "Professional Experience" : "職歴");
   const [fadeKey, setFadeKey] = useState(0);
+
+  // track the language with useEffect
+  useEffect(() => {
+    if (!categories || !selectedCategory) return;
+  
+    // language just changed – we want to map the current category to the new one
+    let newCategory;
+  
+    if (language === "japanese") {
+      // Try to map English → Japanese
+      newCategory = categories[selectedCategory]; // selectedCategory is English
+    } else if (language === "english") {
+      // Try to map Japanese → English
+      newCategory = Object.keys(categories).find(key => categories[key] === selectedCategory);
+    }
+  
+    if (newCategory) {
+      setCategory(newCategory);
+    }
+  
+  }, [language]);
+  
 
   const handleCategoryClick = (cat) => {
     setFadeKey((prev) => prev + 1);
@@ -51,10 +75,10 @@ const CVSection = () => {
             <h3 className="m-0 p-0 font-bold text-center">☰ CV Categories</h3>
           </button>
 
-          <div className="collapse navbar-collapse my-3 my-lg-0" id="navbarNav">
+          <div className="collapse navbar-collapse my-3 my-lg-0 d-lg-flex justify-content-center" id="navbarNav">
             <ul className="navbar-nav text-center mx-0 px-0">
               {Object.keys(grouped).map((cat) => (
-                <li key={cat} className="nav-item mx-0 px-0">
+                <li key={cat} className={language === "english" ? "nav-item mx-0 px-0" : "nav-item me-2 px-0"}>
                   <button
                     className={`nav-link btn btn-link mx-1 px-0 my-0 py-1 ${selectedCategory === cat ? "active" : ""
                       }`}
@@ -84,8 +108,8 @@ const CVSection = () => {
         )}
       </section>
 
-      {selectedCategory === "Professional Experience" && (
-        <ProgrammingExperience />
+      {(selectedCategory === "Professional Experience" || selectedCategory === "職歴") && (
+        <ProgrammingExperience language={language} />
       )}
     </>
   );
