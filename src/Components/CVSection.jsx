@@ -72,7 +72,7 @@ const CVSection = ({language}) => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <h3 className="m-0 p-0 font-bold text-center">☰ CV Categories</h3>
+            <h3 className="m-0 p-0 font-bold text-center">☰ {language === "english" ? "CV Categories" : "履歴書のカテゴリー"}</h3>
           </button>
 
           <div className="collapse navbar-collapse my-3 my-lg-0 d-lg-flex justify-content-center" id="navbarNav">
@@ -101,7 +101,7 @@ const CVSection = ({language}) => {
                 {cat}
               </h2>
               {entries.map((entry, index) => (
-                <CVEntry key={index} {...entry} />
+                <CVEntry language={language} key={index} {...entry} />
               ))}
             </div>
           ) : null
