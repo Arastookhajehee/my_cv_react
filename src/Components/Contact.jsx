@@ -22,13 +22,12 @@ export default function Contact({language}) {
       <h2 className="mt-3">{language === "english" ? "Affilation" : "所属"}</h2>
       <ul className="">
         <li>
-          <h3 className="my-1 text-justify">{language === "english" ? "Consultant at Vicc Ltd." : "株式会社ヴィックのコンサルタント"}</h3>
+          <h3 className="my-1 text-justify">{language === "english" ? "R&D Engineer at Haseman" : <>研究開発エンジニア<br/>ハセマン</>}</h3>
         </li>
         <li>
           <h3 className="my-1 text-justify">
-          {language === "english" ? "Project Academic Specialist at The University of Tokyo" : "東京大学の学術専門職員"}<br />
-          {language === "english" ? "(Part-time)" : "(パートタイム)"}
-          
+          {language === "english" ? "PhD student at The University of Tokyo" : "東京大学博士課程"}<br />
+                   
           </h3>
         </li>
       </ul>
@@ -79,7 +78,7 @@ export default function Contact({language}) {
           <a href="mailto:a.khajehee@gmail.com">{language === "english" ? "Personal" : "個人"}</a>
         </li>
         <li>
-          <a href="mailto:arastoo.khajehee@vicc.jp">{language === "english" ? "Company" : "会社"}</a>
+          <a href="mailto:khajehee.arastoo@haseman.co.jp">{language === "english" ? "Company" : "会社"}</a>
         </li>
         <li>
           <a href="mailto:arastoo@arch1.t.u-tokyo.ac.jp">{language === "english" ? "University" : "大学"}</a>
@@ -95,4 +94,4 @@ export default function Contact({language}) {
     </div>
     </>
   );
-}
+} 
