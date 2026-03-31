@@ -1,9 +1,20 @@
 const cvData = [
   {
     category: "Professional Experience",
-    year: 2023,
+    year: 2025,
     current: true,
-    month: "October",
+    month: "September",
+    title: "Researcher and Developer",
+    // author: "Arastoo Khajehee",
+    description:
+      "Production efficiency and fabrication optimization solution development.",
+    location: "M. Hasegawa & Co., Ltd.",
+  },
+  {
+    category: "Professional Experience",
+    year: 2025,
+    current: false,
+    month: "September",
     title: "BIM Consultant",
     // author: "Arastoo Khajehee",
     description:
@@ -12,9 +23,9 @@ const cvData = [
   },
   {
     category: "Professional Experience",
-    year: 2023,
-    current: true,
-    month: "October",
+    year: 2025,
+    current: false,
+    month: "September",
     title: "Project Academic Specialist (Part-time)",
     // author: "Arastoo Khajehee",
     description:
@@ -75,6 +86,17 @@ const cvData = [
     description:
       "",
     location: "Wonderful Dream Animation Studio, Kerman, Iran",
+  },
+  {
+    category: "Education",
+    year: 2025,
+    current: true,
+    month: "September",
+    title: "PhD Student",
+    // author: "Arastoo Khajehee",
+    description:
+      "",
+    location: "Department of Architecture, Graduate School of Engineering, The University of Tokyo",
   },
   {
     category: "Education",
