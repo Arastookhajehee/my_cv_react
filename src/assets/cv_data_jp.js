@@ -1,9 +1,20 @@
 const cvData = [
   {
     category: "職歴",
-    year: 2023,
+    year: 2025,
     current: true,
-    month: "October",
+    month: "September",
+    title: "研究開発者",
+    // author: "Arastoo Khajehee",
+    description:
+      "製作・ファブリケーションの生産性向上用のアプリとツールの開発",
+    location: "事業企画部、長谷川萬治商店",
+  },
+  {
+    category: "職歴",
+    year: 2025,
+    current: false,
+    month: "September",
     title: "BIM コンサルタント",
     // author: "Arastoo Khajehee",
     description:
@@ -12,9 +23,9 @@ const cvData = [
   },
   {
     category: "職歴",
-    year: 2023,
-    current: true,
-    month: "October",
+    year: 2025,
+    current: false,
+    month: "September",
     title: "学術専門職員 (パートタイム)",
     // author: "Arastoo Khajehee",
     description:
@@ -70,6 +81,16 @@ const cvData = [
     title: "環境デザイナーとモデリングのテクニシャン",
     description: "",
     location: "ケルマーン、ワンダフルドリーム・アニメーションスタジオ、イラン",
+  },
+  {
+    category: "学歴",
+    year: 2025,
+    current: true,
+    month: "September",
+    title: "博士課程",
+    description: "建築学専攻",
+    location:
+      "東京大学、大学院工学系研究科",
   },
   {
     category: "学歴",
