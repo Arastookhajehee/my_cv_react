@@ -1998,6 +1998,21 @@ body {
   background: radial-gradient(ellipse at 45% 32%, rgba(222,222,222,0.72) 0%, rgba(222,222,222,0.4) 34%, rgba(222,222,222,0.1) 62%, rgba(222,222,222,0) 100%) !important;
 }
 
+.remosharp-feature strong {
+  font-size: clamp(2.7rem, 5.4vw, 5.8rem) !important;
+  font-weight: 180 !important;
+  line-height: 0.88 !important;
+  letter-spacing: -0.085em !important;
+}
+
+.hero-name-plate h1 span {
+  font-weight: 160 !important;
+}
+
+.hero-name-plate h1 {
+  font-weight: 400 !important;
+}
+
 .topline-product,
 .language-switch,
 .hero-project-link,
@@ -2018,7 +2033,7 @@ body {
     width: max-content;
     position: relative;
     z-index: 5;
-    transform: translateX(-48%);
+    transform: translateX(-39%);
   }
 }
 
