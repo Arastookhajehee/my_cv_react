@@ -1,21 +1,45 @@
-export default function CVEntry({ current, year, title, author, description, location, link, language }) {
-  const nowStamp = language === "english" ? " → now" : " → 現在";
+const slugify = (value) =>
+  value
+    .toString()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^\w\u3040-\u30ff\u3400-\u9fff]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "item";
+
+export default function CVEntry({
+  current,
+  year,
+  title,
+  author,
+  description,
+  location,
+  link,
+  language,
+  itemNumber,
+  sectionSlug,
+}) {
+  const nowStamp = language === "english" ? "–present" : "–現在";
+  const itemId = `${sectionSlug}-${slugify(title || itemNumber)}`;
 
   return (
-    <article className="cv-entry row align-items-start">
-      <div className="col-12 col-md-2 mb-2 mb-md-0">
-        <span className="year-pill">{year}{current ? nowStamp : ""}</span>
-      </div>
-      <div className="col-12 col-md-10">
-        <h3 className="entry-title mb-1">{title}</h3>
-        {author ? <h4 className="entry-author mb-2">{author}</h4> : null}
-        {description ? <p className="entry-description mb-1">{description}</p> : null}
-        {location ? <p className="entry-location mb-0">{location}</p> : null}
-        {link ? (
-          <a className="entry-link" href={link} target="_blank" rel="noopener noreferrer">
-            View link <i className="bi bi-arrow-up-right ms-1" />
-          </a>
-        ) : null}
+    <article className="portfolio-entry" id={itemId}>
+      <a className="entry-index" href={`#${itemId}`} aria-label={`Link to ${title}`}>
+        {itemNumber}
+      </a>
+      <div className="entry-year">{year}{current ? nowStamp : ""}</div>
+      <div className="entry-body">
+        <h3>{title}</h3>
+        {author ? <p className="entry-author">{author}</p> : null}
+        {description ? <p className="entry-description">{description}</p> : null}
+        <div className="entry-actions">
+          {location ? <span>{location}</span> : null}
+          {link ? (
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              {language === "english" ? "Open reference" : "参照を開く"} <i className="bi bi-arrow-up-right" />
+            </a>
+          ) : null}
+        </div>
       </div>
     </article>
   );

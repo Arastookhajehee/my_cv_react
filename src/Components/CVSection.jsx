@@ -1,9 +1,16 @@
 import cvData from "../assets/cv_data.js";
 import cvDataJP from "../assets/cv_data_jp.js";
-import categories from "../assets/categories_jp_en.js";
 import CVEntry from "./CVEntry.jsx";
-import { useState, useEffect } from "react";
 import ProgrammingExperience from "./ProgramingExperience.jsx";
+
+const slugify = (value) =>
+  value
+    .toString()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^\w\u3040-\u30ff\u3400-\u9fff]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "section";
 
 const groupByCategory = (data) => {
   return data.reduce((acc, entry) => {
@@ -19,86 +26,62 @@ const groupByCategory = (data) => {
 
 const CVSection = ({ language }) => {
   const grouped = groupByCategory(language === "english" ? cvData : cvDataJP);
-  const [selectedCategory, setCategory] = useState(
-    language === "english" ? "Professional Experience" : "職歴"
-  );
-  const [fadeKey, setFadeKey] = useState(0);
-
-  useEffect(() => {
-    if (!categories || !selectedCategory) return;
-
-    const newCategory =
-      language === "japanese"
-        ? categories[selectedCategory]
-        : Object.keys(categories).find((key) => categories[key] === selectedCategory);
-
-    if (newCategory) {
-      setCategory(newCategory);
-      setFadeKey((prev) => prev + 1);
-    }
-  }, [language, selectedCategory]);
-
-  const handleCategoryClick = (cat) => {
-    setFadeKey((prev) => prev + 1);
-    setCategory(cat);
-
-    const navbarCollapse = document.getElementById("navbarNav");
-    if (navbarCollapse?.classList.contains("show")) {
-      new window.bootstrap.Collapse(navbarCollapse, { toggle: true });
-    }
-  };
+  const categories = Object.entries(grouped);
+  const totalItems = categories.reduce((sum, [, entries]) => sum + entries.length, 0);
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark">
-        <div className="container-fluid mt-1 ms-0 ps-0">
-          <button
-            className="navbar-toggler rounded-4"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="fw-bold">
-              ☰ {language === "english" ? "CV Categories" : "履歴書のカテゴリー"}
-            </span>
-          </button>
-
-          <div className="collapse navbar-collapse my-3 my-lg-0 d-lg-flex justify-content-center" id="navbarNav">
-            <ul className="navbar-nav text-center mx-0 px-0">
-              {Object.keys(grouped).map((cat) => (
-                <li key={cat} className="nav-item mx-0 px-0">
-                  <button
-                    className={`nav-link btn btn-link mx-0 my-0 ${selectedCategory === cat ? "active" : ""}`}
-                    onClick={() => handleCategoryClick(cat)}
-                  >
-                    <h3>{cat}</h3>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <section className="portfolio-intro" id="works">
+        <div>
+          <p className="section-label">{language === "english" ? "Work index" : "業績索引"}</p>
+          <h2>{language === "english" ? "Selected CV pages, organized like studio work." : "スタジオ作品のように整理した履歴書ページ。"}</h2>
         </div>
-      </nav>
-
-      <section>
-        {Object.entries(grouped).map(([cat, entries]) =>
-          cat === selectedCategory ? (
-            <div key={fadeKey} className="fade-in">
-              <h2 className="cv-category-title">{cat}</h2>
-              {entries.map((entry, index) => (
-                <CVEntry language={language} key={`${cat}-${index}`} {...entry} />
-              ))}
-            </div>
-          ) : null
-        )}
+        <p>
+          {language === "english"
+            ? `${totalItems} entries across research, professional practice, publications, teaching, grants, and technical development. Use the index cards as page links.`
+            : `${totalItems}件の項目を、研究、実務、出版、教育、助成、技術開発として整理しています。索引カードから各ページへ移動できます。`}
+        </p>
       </section>
 
-      {(selectedCategory === "Professional Experience" || selectedCategory === "職歴") && (
-        <ProgrammingExperience language={language} />
-      )}
+      <section className="category-grid" aria-label="Portfolio pages">
+        {categories.map(([cat, entries], index) => (
+          <a className="category-card" href={`#${slugify(cat)}`} key={cat}>
+            <span className="card-number">{String(index + 1).padStart(2, "0")}</span>
+            <h3>{cat}</h3>
+            <span>{entries.length} {language === "english" ? "items" : "件"}</span>
+          </a>
+        ))}
+      </section>
+
+      <section className="studio-rule" aria-hidden="true" />
+
+      {categories.map(([cat, entries], categoryIndex) => (
+        <section className="portfolio-section" id={slugify(cat)} key={cat}>
+          <div className="section-heading">
+            <span>{String(categoryIndex + 1).padStart(2, "0")}</span>
+            <div>
+              <p>{language === "english" ? "Portfolio page" : "ポートフォリオページ"}</p>
+              <h2>{cat}</h2>
+            </div>
+          </div>
+
+          <div className="entry-list">
+            {entries.map((entry, index) => (
+              <CVEntry
+                language={language}
+                key={`${cat}-${index}`}
+                itemNumber={`${String(categoryIndex + 1).padStart(2, "0")}.${String(index + 1).padStart(2, "0")}`}
+                sectionSlug={slugify(cat)}
+                {...entry}
+              />
+            ))}
+          </div>
+
+          {(cat === "Professional Experience" || cat === "職歴") && (
+            <ProgrammingExperience language={language} />
+          )}
+        </section>
+      ))}
     </>
   );
 };
