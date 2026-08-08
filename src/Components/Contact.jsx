@@ -21,7 +21,7 @@ export default function Contact({ language }) {
       <div className="contact-section" id="contact">
         <h3>{language === "english" ? "Links" : "リンク"}</h3>
         <ul>
-          <li><a className="social-link" href="https://www.remosharp.com/" target="_blank" rel="noopener noreferrer"><i className="bi bi-globe2" /> RemoSharp</a></li>
+          <li><a className="social-link contact-product-link" href="https://www.remosharp.com/" target="_blank" rel="noopener noreferrer"><i className="bi bi-globe2" /> RemoSharp</a></li>
           <li><a className="social-link" href="https://www.youtube.com/@arastookhajehee1570" target="_blank" rel="noopener noreferrer"><i className="bi bi-youtube" /> YouTube</a></li>
           <li><a className="social-link" href="https://www.instagram.com/kh.arastoo/" target="_blank" rel="noopener noreferrer"><i className="bi bi-instagram" /> Instagram</a></li>
           <li><a className="social-link" href="https://github.com/Arastookhajehee" target="_blank" rel="noopener noreferrer"><i className="bi bi-github" /> GitHub</a></li>

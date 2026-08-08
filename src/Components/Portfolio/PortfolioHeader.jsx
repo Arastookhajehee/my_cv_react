@@ -2,5 +2,27 @@ import LanguageButton from "../LanguageButton.jsx";
 import { galleryLink } from "../../assets/visualReference.js";
 
 export default function PortfolioHeader({ language, handleLanguageButtonClick }) {
-  return <header className="portfolio-header"><nav className="topline" aria-label="Portfolio navigation"><a href="#works">{language === "english" ? "Index" : "索引"}</a><a href="#cv">{language === "english" ? "CV" : "CV"}</a><a href="#profile">{language === "english" ? "Profile" : "プロフィール"}</a><a href="#contact">{language === "english" ? "Contact" : "連絡先"}</a><LanguageButton language={language} handleLanguageButtonClick={handleLanguageButtonClick} mobileView={false} /></nav><section className="hero-studio hero-project blog-hero" id="top"><div className="hero-project-media gallery-link-surface image-surface" aria-hidden="true"><img src={galleryLink} alt="" /></div><div className="hero-project-label"><p className="studio-mark">AK / Portfolio</p><p className="project-status">{language === "english" ? "Research and practice" : "研究と実践"}</p></div><div className="hero-name-plate"><h1>Arastoo Khajehee <span>Design, code, robots, and making.</span></h1></div><div className="hero-meta"><p>{language === "english" ? "Computational design, fabrication research, BIM tools, robotics, and experiments behind the work." : "コンピュテーショナルデザイン、ファブリケーション研究、BIMツール、ロボティクス、制作の背後にある実験。"}</p><a className="hero-project-link" href="#cv">{language === "english" ? "View CV" : "CVを見る"}</a></div></section></header>;
+  return (
+    <header className="portfolio-header">
+      <nav className="topline" aria-label="Portfolio navigation">
+        <a className="topline-product" href="https://www.remosharp.com/" target="_blank" rel="noopener noreferrer">RemoSharp</a>
+        <a href="#works">{language === "english" ? "Index" : "索引"}</a>
+        <a href="#cv">{language === "english" ? "CV" : "CV"}</a>
+        <a href="#profile">{language === "english" ? "Profile" : "プロフィール"}</a>
+        <a href="#contact">{language === "english" ? "Contact" : "連絡先"}</a>
+        <LanguageButton language={language} handleLanguageButtonClick={handleLanguageButtonClick} mobileView={false} />
+      </nav>
+      <section className="hero-studio hero-project blog-hero" id="top">
+        <div className="hero-project-media gallery-link-surface image-surface" aria-hidden="true"><img src={galleryLink} alt="" /></div>
+        <div className="hero-project-label"><p className="studio-mark">AK / Portfolio</p><p className="project-status">{language === "english" ? "Research and practice" : "研究と実践"}</p></div>
+        <div className="hero-name-plate"><h1>Arastoo Khajehee <span>Design, code, robots, and making.</span></h1></div>
+        <a className="remosharp-feature" href="https://www.remosharp.com/" target="_blank" rel="noopener noreferrer">
+          <span>{language === "english" ? "Main Product" : "主なプロダクト"}</span>
+          <strong>RemoSharp</strong>
+          <em>{language === "english" ? "Featured work. Visit remosharp.com" : "注目プロダクト。remosharp.comへ"}</em>
+        </a>
+        <div className="hero-meta"><p>{language === "english" ? "Computational design, fabrication research, BIM tools, robotics, and experiments behind the work." : "コンピュテーショナルデザイン、ファブリケーション研究、BIMツール、ロボティクス、制作の背後にある実験。"}</p><a className="hero-project-link" href="#cv">{language === "english" ? "View CV" : "CVを見る"}</a></div>
+      </section>
+    </header>
+  );
 }
