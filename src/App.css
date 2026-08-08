@@ -867,7 +867,7 @@
   animation: heroImageDrift 5200ms cubic-bezier(.2,.8,.2,1) both;
 }
 
-/* Content text scale and square-corner refinement */
+/* Balanced content typography and square-corner refinement */
 .portfolio-header,
 .portfolio-main,
 .portfolio-footer,
@@ -886,37 +886,37 @@
   border-radius: 0;
 }
 
-.portfolio-header .topline,
-.portfolio-header .project-status,
-.portfolio-header .hero-meta p,
-.portfolio-header .hero-project-link,
+.portfolio-header .topline { font-size: 0.74rem !important; }
+.portfolio-header .studio-mark { font-size: clamp(1.05rem, 1.85vw, 2rem) !important; }
+.portfolio-header .project-status { font-size: 0.72rem !important; }
+.portfolio-header .hero-studio h1 { font-size: clamp(2.7rem, 5.4vw, 5.8rem) !important; line-height: 0.88 !important; letter-spacing: -0.085em !important; }
+.portfolio-header .hero-meta p { font-size: clamp(0.9rem, 1.05vw, 1.05rem) !important; line-height: 1.45 !important; }
+.portfolio-header .hero-project-link { font-size: 0.72rem !important; }
+
 .portfolio-main .section-label,
 .portfolio-main .section-heading p,
-.portfolio-main .tools-panel p,
-.portfolio-main .portfolio-intro > p,
-.portfolio-main .category-card > span:last-child,
-.portfolio-main .entry-index,
-.portfolio-main .entry-year,
-.portfolio-main .entry-description,
-.portfolio-main .entry-actions,
-.portfolio-main .tools-panel span,
-.portfolio-main .blog-caption > span,
-.portfolio-main .blog-caption p,
+.portfolio-main .tools-panel p { font-size: 0.68rem !important; }
+.portfolio-main .portfolio-intro h2 { font-size: clamp(1.8rem, 3vw, 3.15rem) !important; line-height: 1 !important; }
+.portfolio-main .portfolio-intro > p { font-size: clamp(0.95rem, 1.1vw, 1.05rem) !important; line-height: 1.5 !important; }
+.portfolio-main .card-number { font-size: 1.85rem !important; }
+.portfolio-main .category-card h3 { font-size: clamp(1rem, 1.5vw, 1.5rem) !important; line-height: 1.05 !important; }
+.portfolio-main .category-card > span:last-child { font-size: 0.7rem !important; }
+
+.portfolio-main .blog-index .projects-heading h2 { font-size: clamp(1.65rem, 2.65vw, 2.85rem) !important; line-height: 1 !important; }
+.portfolio-main .blog-caption > span { font-size: 0.68rem !important; }
+.portfolio-main .blog-caption h3 { font-size: clamp(1.15rem, 1.65vw, 1.65rem) !important; line-height: 1.08 !important; }
+.portfolio-main .blog-caption p { font-size: 0.92rem !important; line-height: 1.48 !important; }
 .portfolio-main .blog-meta-row,
 .portfolio-main .blog-tags,
-.portfolio-main .blog-read-link,
-.portfolio-footer {
-  font-size: 50% !important;
-}
+.portfolio-main .blog-read-link { font-size: 0.68rem !important; }
 
-.portfolio-header .studio-mark { font-size: clamp(0.75rem, 1.5vw, 1.5rem) !important; }
-.portfolio-header .hero-studio h1 { font-size: clamp(2rem, 5.5vw, 6rem) !important; }
-.portfolio-main .portfolio-intro h2 { font-size: clamp(1.15rem, 2.5vw, 2.7rem) !important; }
-.portfolio-main .card-number { font-size: 1.2rem !important; }
-.portfolio-main .category-card h3 { font-size: clamp(0.68rem, 1vw, 1.03rem) !important; }
-.portfolio-main .blog-index .projects-heading h2 { font-size: clamp(1rem, 2.25vw, 2.4rem) !important; }
-.portfolio-main .blog-caption h3 { font-size: clamp(0.85rem, 1.5vw, 1.5rem) !important; }
-.portfolio-main .section-heading > span { font-size: clamp(1.5rem, 3vw, 3rem) !important; }
-.portfolio-main .section-heading h2 { font-size: clamp(1.1rem, 2.5vw, 2.5rem) !important; }
-.portfolio-main .entry-body h3 { font-size: clamp(0.68rem, 1.1vw, 1.18rem) !important; }
-.portfolio-main .entry-author { font-size: 50% !important; }
+.portfolio-main .section-heading > span { font-size: clamp(2rem, 3.75vw, 3.8rem) !important; }
+.portfolio-main .section-heading h2 { font-size: clamp(1.65rem, 3vw, 3rem) !important; line-height: 0.98 !important; }
+.portfolio-main .entry-index,
+.portfolio-main .entry-year { font-size: 0.72rem !important; }
+.portfolio-main .entry-body h3 { font-size: clamp(1rem, 1.45vw, 1.45rem) !important; line-height: 1.12 !important; }
+.portfolio-main .entry-author { font-size: 0.9rem !important; }
+.portfolio-main .entry-description { font-size: 0.9rem !important; line-height: 1.48 !important; }
+.portfolio-main .entry-actions { font-size: 0.72rem !important; }
+.portfolio-main .tools-panel span { font-size: 0.68rem !important; }
+.portfolio-footer { font-size: 0.72rem !important; }
