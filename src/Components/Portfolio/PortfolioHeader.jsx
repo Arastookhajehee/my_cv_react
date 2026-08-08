@@ -22,7 +22,7 @@ export default function PortfolioHeader({ language, handleLanguageButtonClick })
           <div className="remosharp-copy">
             <span>{language === "english" ? "Grasshopper collaboration plugin" : "Grasshopper協働プラグイン"}</span>
             <strong>RemoSharp</strong>
-            <p>{language === "english" ? "Remote collaboration for Grasshopper: live canvas synchronization for components, wires, sketches, and scribbles, plus RemoLibrary for saving, searching, and reusing script fragments through a shared database." : "Grasshopperのためのリモート協働環境。コンポーネント、ワイヤ、スケッチ、書き込みをライブ同期し、RemoLibraryでスクリプト断片を共有データベースに保存・検索・再利用します。"}</p>
+            <p>{language === "english" ? "RemoSharp is a Grasshopper plugin for real-time collaborative computational design and fabrication. It synchronizes the content of connected Grasshopper canvases, including component creation, wire connection, deletion, movement, and sketches, so teams can collaborate live from multiple computers." : "Grasshopperのためのリモート協働環境。コンポーネント、ワイヤ、スケッチ、書き込みをライブ同期し、RemoLibraryでスクリプト断片を共有データベースに保存・検索・再利用します。"}</p>
             <em>www.remosharp.com</em>
           </div>
           <figure className="remosharp-image"><img src={remosharpImage} alt="RemoSharp collaborative Grasshopper diagram" /></figure>
