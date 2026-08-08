@@ -1,0 +1,14 @@
+services:
+  cv:
+    build: .
+    image: my-cv-react:latest
+    container_name: my-cv-react
+    restart: unless-stopped
+    ports:
+      - "9371:80"
+    networks:
+      - cv_net
+
+networks:
+  cv_net:
+    name: my_cv_react_net

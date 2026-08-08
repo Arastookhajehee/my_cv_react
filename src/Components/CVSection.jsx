@@ -7,7 +7,6 @@ import ProgrammingExperience from "./ProgramingExperience.jsx";
 
 const groupByCategory = (data) => {
   return data.reduce((acc, entry) => {
-    2
     if (!acc[entry.category]) acc[entry.category] = [];
     acc[entry.category].push(entry);
     acc[entry.category].sort((a, b) => {
@@ -18,51 +17,41 @@ const groupByCategory = (data) => {
   }, {});
 };
 
-const CVSection = ({language}) => {
+const CVSection = ({ language }) => {
   const grouped = groupByCategory(language === "english" ? cvData : cvDataJP);
-  const [selectedCategory, setCategory] = useState(language === "english" ? "Professional Experience" : "職歴");
+  const [selectedCategory, setCategory] = useState(
+    language === "english" ? "Professional Experience" : "職歴"
+  );
   const [fadeKey, setFadeKey] = useState(0);
 
-  // track the language with useEffect
   useEffect(() => {
     if (!categories || !selectedCategory) return;
-  
-    // language just changed – we want to map the current category to the new one
-    let newCategory;
-  
-    if (language === "japanese") {
-      // Try to map English → Japanese
-      newCategory = categories[selectedCategory]; // selectedCategory is English
-    } else if (language === "english") {
-      // Try to map Japanese → English
-      newCategory = Object.keys(categories).find(key => categories[key] === selectedCategory);
-    }
-  
+
+    const newCategory =
+      language === "japanese"
+        ? categories[selectedCategory]
+        : Object.keys(categories).find((key) => categories[key] === selectedCategory);
+
     if (newCategory) {
       setCategory(newCategory);
+      setFadeKey((prev) => prev + 1);
     }
-  
-  }, [language]);
-  
+  }, [language, selectedCategory]);
 
   const handleCategoryClick = (cat) => {
     setFadeKey((prev) => prev + 1);
     setCategory(cat);
 
-    // Collapse navbar after click
     const navbarCollapse = document.getElementById("navbarNav");
-    if (navbarCollapse.classList.contains("show")) {
-      const collapse = new window.bootstrap.Collapse(navbarCollapse, {
-        toggle: true,
-      });
+    if (navbarCollapse?.classList.contains("show")) {
+      new window.bootstrap.Collapse(navbarCollapse, { toggle: true });
     }
   };
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light">
+      <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container-fluid mt-1 ms-0 ps-0">
-          {/* Toggler for mobile */}
           <button
             className="navbar-toggler rounded-4"
             type="button"
@@ -72,16 +61,17 @@ const CVSection = ({language}) => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <h3 className="m-0 p-0 font-bold text-center">☰ {language === "english" ? "CV Categories" : "履歴書のカテゴリー"}</h3>
+            <span className="fw-bold">
+              ☰ {language === "english" ? "CV Categories" : "履歴書のカテゴリー"}
+            </span>
           </button>
 
           <div className="collapse navbar-collapse my-3 my-lg-0 d-lg-flex justify-content-center" id="navbarNav">
             <ul className="navbar-nav text-center mx-0 px-0">
               {Object.keys(grouped).map((cat) => (
-                <li key={cat} className={language === "english" ? "nav-item mx-0 px-0" : "nav-item me-2 px-0"}>
+                <li key={cat} className="nav-item mx-0 px-0">
                   <button
-                    className={`nav-link btn btn-link mx-1 px-0 my-0 py-1 ${selectedCategory === cat ? "active" : ""
-                      }`}
+                    className={`nav-link btn btn-link mx-0 my-0 ${selectedCategory === cat ? "active" : ""}`}
                     onClick={() => handleCategoryClick(cat)}
                   >
                     <h3>{cat}</h3>
@@ -93,15 +83,13 @@ const CVSection = ({language}) => {
         </div>
       </nav>
 
-      <section className="">
+      <section>
         {Object.entries(grouped).map(([cat, entries]) =>
           cat === selectedCategory ? (
-            <div key={fadeKey} className="mb-10 fade-in">
-              <h2 className="font-bold mb-3 py-3 border-bottom border-2">
-                {cat}
-              </h2>
+            <div key={fadeKey} className="fade-in">
+              <h2 className="cv-category-title">{cat}</h2>
               {entries.map((entry, index) => (
-                <CVEntry language={language} key={index} {...entry} />
+                <CVEntry language={language} key={`${cat}-${index}`} {...entry} />
               ))}
             </div>
           ) : null

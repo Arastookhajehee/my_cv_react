@@ -1,19 +1,22 @@
-export default function CVEntry({ current, year, month, title, author, description, location, link, language }) {
+export default function CVEntry({ current, year, title, author, description, location, link, language }) {
+  const nowStamp = language === "english" ? " → now" : " → 現在";
 
-  const nowStamp = language === "english" ? " ~ now" : " ~ 現在";
   return (
-    <div className="row">
-      <div className="col-2 col-lg-1">
-        <div className="text-sm mt-2 text-gray-600 italic">{year}{current ? nowStamp : ""}</div>
+    <article className="cv-entry row align-items-start">
+      <div className="col-12 col-md-2 mb-2 mb-md-0">
+        <span className="year-pill">{year}{current ? nowStamp : ""}</span>
       </div>
-      <div className="col-10 col-lg-11">
-        <h3 className="text-xl fw-bold mt-2 pb-0">{title}</h3>
-        <h3 className="text-md text-gray-500 fw-bold pb-0">{author}</h3>
-        <p className="text-sm mb-0 pb-0">{description}</p>
-        <p className="text-sm mb-0 pb-0">{location}</p>
-        {link ? <a className="text-sm text-blue-500 hover:underline" href={link} target="_blank" rel="noopener noreferrer">Link</a> : null}
-
+      <div className="col-12 col-md-10">
+        <h3 className="entry-title mb-1">{title}</h3>
+        {author ? <h4 className="entry-author mb-2">{author}</h4> : null}
+        {description ? <p className="entry-description mb-1">{description}</p> : null}
+        {location ? <p className="entry-location mb-0">{location}</p> : null}
+        {link ? (
+          <a className="entry-link" href={link} target="_blank" rel="noopener noreferrer">
+            View link <i className="bi bi-arrow-up-right ms-1" />
+          </a>
+        ) : null}
       </div>
-    </div>
+    </article>
   );
 }
