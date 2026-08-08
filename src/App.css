@@ -806,3 +806,117 @@
     min-height: auto;
   }
 }
+
+
+/* Weblog conversion */
+.blog-hero .hero-name-plate { background: linear-gradient(110deg, rgba(255,255,252,0.88), rgba(240,230,217,0.50) 42%, rgba(16,16,16,0.08)), repeating-linear-gradient(90deg, rgba(255,255,255,0.18) 0 1px, rgba(0,0,0,0.05) 1px 3px, transparent 3px 8px); }
+.gallery-link-surface { position: relative; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; min-height: 100%; padding: clamp(18px, 3vw, 34px); border: 1px solid rgba(16, 16, 16, 0.82); background: linear-gradient(135deg, rgba(37,31,26,0.82), rgba(174,138,101,0.56), rgba(242,236,225,0.26)), repeating-linear-gradient(45deg, rgba(255,255,255,0.10) 0 1px, transparent 1px 14px), #342820; color: #fff8eb; overflow-wrap: anywhere; }
+.hero-project-media.gallery-link-surface { position: absolute; inset: 0; z-index: -2; filter: grayscale(35%) contrast(1.08) brightness(0.8); text-decoration: none; }
+.gallery-link-surface::after { content: "↗"; position: absolute; top: 18px; right: 22px; font-size: clamp(2rem, 5vw, 5rem); line-height: 1; opacity: 0.58; }
+.gallery-link-kicker, .gallery-link-surface span { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; }
+.gallery-link-surface strong { max-width: 720px; font-size: clamp(0.95rem, 2vw, 1.8rem); font-weight: 520; line-height: 1.08; }
+.blog-intro { background: linear-gradient(135deg, rgba(252,250,246,0.95), rgba(227,218,205,0.85)), repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0 1px, transparent 1px 9px); }
+.blog-index { padding: clamp(28px, 4vw, 56px); border-bottom: 1px solid rgba(16, 16, 16, 0.86); }
+.blog-index .projects-heading { display: grid; grid-template-columns: minmax(220px, 0.75fr) 1fr; gap: 28px; margin-bottom: 26px; }
+.blog-index .projects-heading h2 { margin: 0; color: #181818; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4.5vw, 4.8rem) !important; font-weight: 400; letter-spacing: -0.07em; line-height: 0.94; }
+.blog-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.blog-card { display: grid; grid-template-rows: minmax(210px, 0.7fr) auto; min-height: 560px; border: 1px solid rgba(16, 16, 16, 0.86); background: rgba(250,250,248,0.76); color: #181818; text-decoration: none; }
+.blog-card:hover { color: #181818; text-decoration: none; }
+.blog-card-image { min-height: 230px; }
+.blog-caption { padding: 22px; }
+.blog-caption > span { display: block; margin-bottom: 14px; color: #5b5148; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.blog-caption h3 { margin: 0; color: #181818; font-size: clamp(1.7rem, 3vw, 3rem) !important; font-weight: 360; letter-spacing: -0.065em; line-height: 0.98; }
+.blog-caption p { margin: 14px 0 0; color: #252525; font-size: 1rem; line-height: 1.55; }
+.blog-meta-row, .blog-tags { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-top: 16px; color: #565656; font-size: 0.78rem; letter-spacing: 0.07em; text-transform: uppercase; }
+.blog-tags em { padding: 6px 8px; border: 1px solid rgba(16,16,16,0.5); color: #181818; font-style: normal; }
+.blog-read-link { display: inline-block; margin-top: 18px; color: #101010; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+@media (max-width: 900px) { .blog-index .projects-heading, .blog-grid { grid-template-columns: 1fr; } .blog-card { min-height: 0; } }
+
+/* External texture image display fix */
+.image-surface {
+  padding: 0;
+  background: #342820;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.image-surface img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  opacity: 0.2;
+  filter: grayscale(100%) contrast(1.18) brightness(0.92);
+  transform: scale(1.01);
+}
+
+.image-surface::after {
+  content: "";
+  inset: 0;
+  right: auto;
+  top: auto;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0,0,0,0.10), rgba(255,255,255,0.12));
+  opacity: 1;
+  pointer-events: none;
+}
+
+.hero-project-media.image-surface img {
+  animation: heroImageDrift 5200ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+/* Content text scale and square-corner refinement */
+.portfolio-header,
+.portfolio-main,
+.portfolio-footer,
+.hero-name-plate,
+.hero-project-link,
+.profile-img,
+.language-switch,
+.category-card,
+.portfolio-entry,
+.tools-panel span,
+.gallery-link-surface,
+.blog-card,
+.blog-tags em,
+.contact-section,
+.entry-actions a {
+  border-radius: 0;
+}
+
+.portfolio-header .topline,
+.portfolio-header .project-status,
+.portfolio-header .hero-meta p,
+.portfolio-header .hero-project-link,
+.portfolio-main .section-label,
+.portfolio-main .section-heading p,
+.portfolio-main .tools-panel p,
+.portfolio-main .portfolio-intro > p,
+.portfolio-main .category-card > span:last-child,
+.portfolio-main .entry-index,
+.portfolio-main .entry-year,
+.portfolio-main .entry-description,
+.portfolio-main .entry-actions,
+.portfolio-main .tools-panel span,
+.portfolio-main .blog-caption > span,
+.portfolio-main .blog-caption p,
+.portfolio-main .blog-meta-row,
+.portfolio-main .blog-tags,
+.portfolio-main .blog-read-link,
+.portfolio-footer {
+  font-size: 50% !important;
+}
+
+.portfolio-header .studio-mark { font-size: clamp(0.75rem, 1.5vw, 1.5rem) !important; }
+.portfolio-header .hero-studio h1 { font-size: clamp(2rem, 5.5vw, 6rem) !important; }
+.portfolio-main .portfolio-intro h2 { font-size: clamp(1.15rem, 2.5vw, 2.7rem) !important; }
+.portfolio-main .card-number { font-size: 1.2rem !important; }
+.portfolio-main .category-card h3 { font-size: clamp(0.68rem, 1vw, 1.03rem) !important; }
+.portfolio-main .blog-index .projects-heading h2 { font-size: clamp(1rem, 2.25vw, 2.4rem) !important; }
+.portfolio-main .blog-caption h3 { font-size: clamp(0.85rem, 1.5vw, 1.5rem) !important; }
+.portfolio-main .section-heading > span { font-size: clamp(1.5rem, 3vw, 3rem) !important; }
+.portfolio-main .section-heading h2 { font-size: clamp(1.1rem, 2.5vw, 2.5rem) !important; }
+.portfolio-main .entry-body h3 { font-size: clamp(0.68rem, 1.1vw, 1.18rem) !important; }
+.portfolio-main .entry-author { font-size: 50% !important; }

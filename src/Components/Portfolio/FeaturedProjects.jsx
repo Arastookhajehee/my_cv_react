@@ -1,32 +1,5 @@
-import portfolioProjects from "../../assets/portfolioProjects.js";
+import blogPosts, { galleryLink } from "../../assets/blogPosts.js";
 
 export default function FeaturedProjects({ language }) {
-  return (
-    <section className="featured-projects" id="projects">
-      <div className="projects-heading motion-rise">
-        <p className="section-label">{language === "english" ? "Project placeholders" : "プロジェクト・プレースホルダー"}</p>
-        <h2>{language === "english" ? "Ten generated project pages for the portfolio direction." : "ポートフォリオ方向性のための10件の生成プロジェクトページ。"}</h2>
-      </div>
-
-      <div className="project-grid">
-        {portfolioProjects.map((project, index) => (
-          <a
-            className="project-card motion-rise"
-            href={project.href}
-            key={project.title}
-            style={{ "--stagger": `${index * 55}ms` }}
-          >
-            <figure>
-              <img src={project.image} alt={language === "english" ? project.title : project.jpTitle} />
-            </figure>
-            <div className="project-caption">
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{language === "english" ? project.title : project.jpTitle}</h3>
-              <p>{project.type} / {project.year}</p>
-            </div>
-          </a>
-        ))}
-      </div>
-    </section>
-  );
+  return <section className="featured-projects blog-index" id="weblog"><div className="projects-heading motion-rise"><p className="section-label">{language === "english" ? "Weblog" : "ウェブログ"}</p><h2>{language === "english" ? "Technical notes and field records." : "技術ノートとフィールド記録。"}</h2></div><div className="project-grid blog-grid" id="notes">{blogPosts.map((post, index) => <article className="project-card blog-card motion-rise" key={post.slug} id={post.slug} style={{ "--stagger": `${index * 55}ms` }}><div className="blog-card-image gallery-link-surface image-surface" aria-hidden="true"><img src={galleryLink} alt="" /></div><div className="project-caption blog-caption"><span>{String(index + 1).padStart(2, "0")} / {post.eyebrow}</span><h3>{language === "english" ? post.title : post.jpTitle}</h3><p>{language === "english" ? post.summary : post.jpSummary}</p><div className="blog-meta-row"><time dateTime={post.date}>{post.date}</time><span>{post.readTime}</span></div><div className="blog-tags" aria-label="Tags">{post.tags.map((tag) => <em key={tag}>{tag}</em>)}</div>{post.link ? <a className="blog-read-link" href={post.link} target="_blank" rel="noopener noreferrer">{language === "english" ? "Open source post" : "元記事を開く"} <i className="bi bi-arrow-up-right" /></a> : null}</div></article>)}</div></section>;
 }
