@@ -2,6 +2,7 @@ import cvData from "../assets/cv_data.js";
 import cvDataJP from "../assets/cv_data_jp.js";
 import CVEntry from "./CVEntry.jsx";
 import ProgrammingExperience from "./ProgramingExperience.jsx";
+import FeaturedProjects from "./Portfolio/FeaturedProjects.jsx";
 
 const slugify = (value) =>
   value
@@ -52,6 +53,8 @@ const CVSection = ({ language }) => {
           </a>
         ))}
       </section>
+
+      <FeaturedProjects language={language} />
 
       <section className="studio-rule" aria-hidden="true" />
 

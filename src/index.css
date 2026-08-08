@@ -1,7 +1,7 @@
 :root {
   font-family: "Helvetica Neue", Arial, sans-serif;
-  color: #181818;
-  background: #f2f0eb;
+  color: #101010;
+  background: #d8d8d5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -21,10 +21,10 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background:
-    linear-gradient(90deg, rgba(0,0,0,0.035) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(0,0,0,0.035) 1px, transparent 1px),
-    #f2f0eb;
-  background-size: 80px 80px, 80px 80px, auto;
+    linear-gradient(105deg, rgba(255,255,255,0.36), rgba(255,255,255,0) 22%, rgba(0,0,0,0.12) 48%, rgba(255,255,255,0.28) 75%, rgba(0,0,0,0.08)),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.16) 0 1px, rgba(0,0,0,0.055) 1px 2px, transparent 2px 5px),
+    #d8d8d5;
+  background-size: auto, auto, auto;
 }
 
 a {
