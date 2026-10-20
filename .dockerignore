@@ -6,3 +6,8 @@ Dockerfile
 docker-compose.yml
 README.md
 *.log
+.env
+.env.*
+*.key
+*.pem
+.ssh

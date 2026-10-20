@@ -12,6 +12,13 @@ services:
     cap_drop:
       - ALL
     pids_limit: 100
+    mem_limit: 64m
+    cpus: "0.50"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=16m
       - /var/cache/nginx:rw,noexec,nosuid,size=16m

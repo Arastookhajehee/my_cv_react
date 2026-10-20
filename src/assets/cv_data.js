@@ -295,7 +295,7 @@ const cvData = [
     author: "Y. IKeda and A. Khajehee",
     description:
       "IASS Annual Symposium 2023 Integration of Design and Fabrication",
-    link: "https://bit.ly/4abzlaE",
+    link: "https://www.ingentaconnect.com/contentone/iass/piass/2023/00002023/00000018/art00019",
     // location: "Keio University, Japan",
   },
   {
