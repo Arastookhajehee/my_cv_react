@@ -5,7 +5,17 @@ services:
     container_name: my-cv-react
     restart: unless-stopped
     ports:
-      - "9371:80"
+      - "9371:8080"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 100
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+      - /var/cache/nginx:rw,noexec,nosuid,size=16m
+      - /var/run:rw,noexec,nosuid,size=1m
     networks:
       - cv_net
 
