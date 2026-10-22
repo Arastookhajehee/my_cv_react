@@ -34,7 +34,7 @@ test("runtime container is least-privileged and uses its unprivileged port", asy
     read("docker-compose.yml"),
   ]);
   assert.match(dockerfile, /nginxinc\/nginx-unprivileged:/);
-  assert.match(dockerfile, /RUN npm ci/);
+  assert.match(dockerfile, /USER node[\s\S]*RUN npm ci/);
   assert.doesNotMatch(dockerfile, /RUN npm install/);
   assert.match(compose, /["']9371:8080["']/);
   assert.doesNotMatch(compose, /9371:80(?:["']|\s)/);
