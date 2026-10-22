@@ -1,0 +1,13 @@
+node_modules
+dist
+.git
+.gitignore
+Dockerfile
+docker-compose.yml
+README.md
+*.log
+.env
+.env.*
+*.key
+*.pem
+.ssh

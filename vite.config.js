@@ -6,12 +6,11 @@ export default defineConfig({
   plugins: [react()],
   base: './', // <- ADD THIS LINE
   server: {
-    host: "0.0.0.0", // or '0.0.0.0'
+    host: "127.0.0.1",
     port: 20250, // Optional: Specify a port number, default is 5173
     allowedHosts: [
       'localhost', // Allow localhost
       '127.0.0.1', // Allow specific IP address
-      'www.arastookhajehee.net', // Allow example.com and all its subdomains
     ],
   },
   build: {

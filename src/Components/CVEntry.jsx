@@ -1,19 +1,46 @@
-export default function CVEntry({ current, year, month, title, author, description, location, link, language }) {
+const slugify = (value) =>
+  value
+    .toString()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^\w\u3040-\u30ff\u3400-\u9fff]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "item";
 
-  const nowStamp = language === "english" ? " ~ now" : " ~ 現在";
+export default function CVEntry({
+  current,
+  year,
+  title,
+  author,
+  description,
+  location,
+  link,
+  language,
+  itemNumber,
+  sectionSlug,
+}) {
+  const nowStamp = language === "english" ? "–present" : "–現在";
+  const itemId = `${sectionSlug}-${slugify(title || itemNumber)}`;
+
   return (
-    <div className="row">
-      <div className="col-2 col-lg-1">
-        <div className="text-sm mt-2 text-gray-600 italic">{year}{current ? nowStamp : ""}</div>
+    <article className="portfolio-entry" id={itemId}>
+      <a className="entry-index" href={`#${itemId}`} aria-label={`Link to ${title}`}>
+        {itemNumber}
+      </a>
+      <div className="entry-year">{year}{current ? nowStamp : ""}</div>
+      <div className="entry-body">
+        <h3>{title}</h3>
+        {author ? <p className="entry-author">{author}</p> : null}
+        {description ? <p className="entry-description">{description}</p> : null}
+        <div className="entry-actions">
+          {location ? <span>{location}</span> : null}
+          {link ? (
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              {language === "english" ? "Open reference" : "参照を開く"} <i className="bi bi-arrow-up-right" />
+            </a>
+          ) : null}
+        </div>
       </div>
-      <div className="col-10 col-lg-11">
-        <h3 className="text-xl fw-bold mt-2 pb-0">{title}</h3>
-        <h3 className="text-md text-gray-500 fw-bold pb-0">{author}</h3>
-        <p className="text-sm mb-0 pb-0">{description}</p>
-        <p className="text-sm mb-0 pb-0">{location}</p>
-        {link ? <a className="text-sm text-blue-500 hover:underline" href={link} target="_blank" rel="noopener noreferrer">Link</a> : null}
-
-      </div>
-    </div>
+    </article>
   );
 }

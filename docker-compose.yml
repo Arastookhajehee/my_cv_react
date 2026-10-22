@@ -1,0 +1,31 @@
+services:
+  cv:
+    build: .
+    image: my-cv-react:latest
+    container_name: my-cv-react
+    restart: unless-stopped
+    ports:
+      - "9371:8080"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 100
+    mem_limit: 64m
+    cpus: "0.50"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+      - /var/cache/nginx:rw,noexec,nosuid,size=16m
+      - /var/run:rw,noexec,nosuid,size=1m
+    networks:
+      - cv_net
+
+networks:
+  cv_net:
+    name: my_cv_react_net
