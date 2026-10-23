@@ -11,7 +11,6 @@ export default function PortfolioHeader({ language, handleLanguageButtonClick })
         <a href="#works">{language === "english" ? "Index" : "索引"}</a>
         <a href="#cv">{language === "english" ? "CV" : "CV"}</a>
         <a href="#profile">{language === "english" ? "Profile" : "プロフィール"}</a>
-        <a href="#contact">{language === "english" ? "Contact" : "連絡先"}</a>
         <LanguageButton language={language} handleLanguageButtonClick={handleLanguageButtonClick} mobileView={false} />
       </nav>
       <section className="hero-studio hero-project blog-hero" id="top">
