@@ -4,20 +4,25 @@ import test from "node:test";
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
-test("website source contains no direct contact details or contact navigation", async () => {
+test("website source exposes social links without direct contact details", async () => {
   const [contact, header] = await Promise.all([
     read("src/Components/Contact.jsx"),
     read("src/Components/Portfolio/PortfolioHeader.jsx"),
   ]);
   const source = `${contact}\n${header}`;
+  for (const required of [
+    "youtube.com/@arastookhajehee1570",
+    "instagram.com/kh.arastoo",
+    "github.com/Arastookhajehee",
+  ]) {
+    assert.ok(source.includes(required), `social reference missing: ${required}`);
+  }
+
   for (const forbidden of [
     "mailto:",
     "a.khajehee@gmail.com",
     "khajehee.arastoo@haseman.co.jp",
     "arastoo@arch1.t.u-tokyo.ac.jp",
-    "youtube.com/@arastookhajehee1570",
-    "instagram.com/kh.arastoo",
-    "github.com/Arastookhajehee",
     'href="#contact"',
     'id="contact"',
   ]) {
